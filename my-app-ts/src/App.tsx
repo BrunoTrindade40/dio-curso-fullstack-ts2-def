@@ -1,26 +1,31 @@
-import { Card } from "./components/Card";
-import { Layout } from "./components/Layout";
+import {
+  Box,
+  Button,
+  Center,
+  ChakraProvider,
+  Input
+} from '@chakra-ui/react';
+import { login } from './services/login';
 
 function App() {
   return (
     <>
-      <Layout>
-        <Card
-          id={1}
-          paragraph="Typescript"
-          details="TS para frontend e backend"
-        />
-        <Card
-          id={2}
-          paragraph="HTML"
-          details="HTML para frontend"
-        />
-        <Card
-          id={3}
-          paragraph="SQL"
-          details="SQL para banco de dados"
-        />
-      </Layout>
+      <ChakraProvider>
+        <Box minHeight='100vh' backgroundColor='#9413dc' padding='25px'>
+          <Box backgroundColor='#FFF' borderRadius='25px' padding='15px'>
+            <Center>
+              <h1>Faça o Login</h1>
+            </Center>
+            <Input placeholder='email'/>
+            <Input placeholder='password'/>
+            <Center>
+              <Button onClick={login} size='sm' colorScheme='teal' marginTop='15px' width='100%'>
+                Enviar
+              </Button>
+            </Center>
+          </Box>
+        </Box>
+      </ChakraProvider>
     </>
   );
 }
